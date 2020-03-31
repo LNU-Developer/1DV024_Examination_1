@@ -1,0 +1,64 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\Rickard Marjanovic\\Google Drive\\School\\Webbprogrammerare (Linnéuniversitet)\\1DV024 Objektorienterad programmering\\examination-1\\examination-1.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\Rickard Marjanovic\\Google Drive\\School\\Webbprogrammerare (Linnéuniversitet)\\1DV024 Objektorienterad programmering\\examination-1\\examination-1.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Rickard Marjanovic\\Google Drive\\School\\Webbprogrammerare (Linnéuniversitet)\\1DV024 Objektorienterad programmering\\examination-1\\examination-1.csproj",
+        "projectName": "examination-1",
+        "projectPath": "C:\\Users\\Rickard Marjanovic\\Google Drive\\School\\Webbprogrammerare (Linnéuniversitet)\\1DV024 Objektorienterad programmering\\examination-1\\examination-1.csproj",
+        "packagesPath": "C:\\Users\\Rickard Marjanovic\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Rickard Marjanovic\\Google Drive\\School\\Webbprogrammerare (Linnéuniversitet)\\1DV024 Objektorienterad programmering\\examination-1\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Rickard Marjanovic\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "dependencies": {
+            "newtonsoft.json": {
+              "target": "Package",
+              "version": "[12.0.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
