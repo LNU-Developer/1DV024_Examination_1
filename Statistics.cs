@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Collections;
 
 namespace StatisticsHelper {
     static class Statistics
@@ -72,13 +71,23 @@ namespace StatisticsHelper {
 
         static int Range(int[] source)
         {
-            int test = 10;
-            return test;
+            int[] sortedArray = uniqueSortedArray(source);    
+            return sortedArray[sortedArray.Length - 1] - sortedArray[0];
         }
         static double StandardDeviation(int[] source)
         {
-            double test = 10.0;
-            return test;
+            int[] sortedArray = uniqueSortedArray(source);  
+            double average = Mean(sortedArray);
+            double[] powerOfDeviations = new double[sortedArray.Length];
+            double total = 0; 
+            for (int i = 0; i < sortedArray.Length; i++) {
+                 powerOfDeviations[i] = Math.Pow((sortedArray[i] - average), 2);
+            }
+            for (int u = 0; u < powerOfDeviations.Length; u++) 
+            {
+                total += powerOfDeviations[u];
+            }
+            return Math.Sqrt(total / powerOfDeviations.Length);
         }
 
         static int[] uniqueSortedArray (int[] source) {

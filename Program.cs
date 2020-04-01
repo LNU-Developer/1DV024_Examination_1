@@ -8,7 +8,7 @@ namespace Program
     {
         static void Main(string[] args)
         {
-            int[] test = new int[] { 4, 8, 2, 4, 5 };
+            int[] test = new int[] { 4, 2, 6, 1, 3, 7, 5, 3, 7 };
             dynamic response = Statistics.DescriptiveStatistics(test);
 
             foreach (KeyValuePair<string, dynamic> item in response)
