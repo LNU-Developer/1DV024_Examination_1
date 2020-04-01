@@ -1,7 +1,7 @@
 using System;
 
-namespace errorChecker {
-    static class errorHandler 
+namespace ErrorChecker {
+    static class ErrorHandler 
     {
         public static void checkInputs (int[] source) 
         {
