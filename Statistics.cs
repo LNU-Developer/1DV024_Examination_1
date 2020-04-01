@@ -1,13 +1,14 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using errorChecker;
 
 namespace StatisticsHelper {
     static class Statistics
     {
         public static dynamic DescriptiveStatistics(int[] source)
         {
-            
+            errorHandler.checkInputs (source);
             Dictionary<string, dynamic> response =   
                        new Dictionary<string, dynamic>()
                        {
@@ -23,13 +24,13 @@ namespace StatisticsHelper {
             return response;
         }
 
-        static int Maximum(int[] source)
+        public static int Maximum(int[] source)
         {
             int[] sortedArray = uniqueSortedArray(source);
             return sortedArray[sortedArray.Length-1];
         }
 
-        static double Mean(int[] source)
+        public static double Mean(int[] source)
         {
             double total = 0;
             for (int i = 0; i < source.Length; i++) 
@@ -37,10 +38,10 @@ namespace StatisticsHelper {
                 total += source[i];
             }
             
-            return total/source.Length;
+            return Math.Round(total/source.Length, 1);
         }
 
-        static double Median(int[] source)
+        public static double Median(int[] source)
         {
             int[] sortedArray = uniqueSortedArray(source);
             double medianValue = 0;
@@ -56,16 +57,16 @@ namespace StatisticsHelper {
                 medianValue = sortedArray[sortedArray.Length/2];
             } 
 
-            return medianValue;
+            return Math.Round(medianValue, 1);
         }
 
-        static int Minimum(int[] source)
+        public static int Minimum(int[] source)
         {
             int[] sortedArray = uniqueSortedArray(source);
             return sortedArray[0];
         }
 
-        static int[] Mode(int[] source)
+        public static int[] Mode(int[] source)
         {
             int[] sortedArray = uniqueSortedArray(source);
             int[] countArray = new int[sortedArray.Length];
@@ -91,12 +92,12 @@ namespace StatisticsHelper {
             return modeList.ToArray();
         }
 
-        static int Range(int[] source)
+        public static int Range(int[] source)
         {
             int[] sortedArray = uniqueSortedArray(source);    
             return sortedArray[sortedArray.Length - 1] - sortedArray[0];
         }
-        static double StandardDeviation(int[] source)
+        public static double StandardDeviation(int[] source)
         {
             int[] sortedArray = uniqueSortedArray(source);  
             double average = Mean(sortedArray);
@@ -109,7 +110,7 @@ namespace StatisticsHelper {
             {
                 total += powerOfDeviations[u];
             }
-            return Math.Sqrt(total / powerOfDeviations.Length);
+            return Math.Round(Math.Sqrt(total / powerOfDeviations.Length), 1);
         }
 
         static int[] uniqueSortedArray (int[] source) {
@@ -120,8 +121,6 @@ namespace StatisticsHelper {
             {
                 deepCopy[i] = source[i];
             }
- 
-            
             Array.Sort(deepCopy);
             return deepCopy;
         }
