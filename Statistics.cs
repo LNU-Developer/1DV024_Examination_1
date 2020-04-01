@@ -31,14 +31,32 @@ namespace StatisticsHelper {
 
         static double Mean(int[] source)
         {
-            double test = 10.0;
-            return test;
+            double total = 0;
+            for (int i = 0; i < source.Length; i++) 
+            { 
+                total += source[i];
+            }
+            
+            return total/source.Length;
         }
 
         static double Median(int[] source)
         {
-            double test = 10.0;
-            return test;
+            int[] sortedArray = uniqueSortedArray(source);
+            double medianValue = 0;
+            
+            if (sortedArray.Length % 2 == 0)
+            {
+                int middleElement1 = sortedArray[(sortedArray.Length/2)-1];
+                int middleElement2 = sortedArray[(sortedArray.Length/2)];
+                medianValue = (middleElement1+middleElement2)/2;
+            } 
+            else
+            {
+                medianValue = sortedArray[sortedArray.Length/2];
+            } 
+
+            return medianValue;
         }
 
         static int Minimum(int[] source)
