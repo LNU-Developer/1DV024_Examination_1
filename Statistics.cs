@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace StatisticsHelper {
     static class Statistics
@@ -16,7 +17,7 @@ namespace StatisticsHelper {
                            {"Median", Median(source)},
                            {"Mode", Mode(source)},
                            {"Range", Range(source)},
-                           {"Standard Deviation", StandardDeviation(source)}
+                           {"StandardDeviation", StandardDeviation(source)}
                        };
         
             return response;
@@ -46,8 +47,8 @@ namespace StatisticsHelper {
             
             if (sortedArray.Length % 2 == 0)
             {
-                int middleElement1 = sortedArray[(sortedArray.Length/2)-1];
-                int middleElement2 = sortedArray[(sortedArray.Length/2)];
+                double middleElement1 = sortedArray[(sortedArray.Length/2)-1];
+                double middleElement2 = sortedArray[(sortedArray.Length/2)];
                 medianValue = (middleElement1+middleElement2)/2;
             } 
             else
@@ -66,7 +67,28 @@ namespace StatisticsHelper {
 
         static int[] Mode(int[] source)
         {
-            return source;
+            int[] sortedArray = uniqueSortedArray(source);
+            int[] countArray = new int[sortedArray.Length];
+            
+            for (int x = 0; x < countArray.Length; x++) {
+                countArray[x]=1;
+            }
+
+            for (int i = 1; i < sortedArray.Length; i++) {
+                 if (sortedArray[i] == sortedArray[i-1])
+                 countArray[i] = countArray[i-1]+1;
+            }
+
+            int max = countArray.Max();
+            
+            
+            List<int> modeList = new List<int>();
+            for (int u = 0; u < countArray.Length; u++) {
+                if(countArray[u] == max)
+                modeList.Add(sortedArray[u]);
+            }
+            
+            return modeList.ToArray();
         }
 
         static int Range(int[] source)
@@ -96,7 +118,7 @@ namespace StatisticsHelper {
 
             for (int i=0; i<source.Length; i++) // Iterate through array, one element at a time
             {
-            deepCopy[i] = source[i];
+                deepCopy[i] = source[i];
             }
  
             
