@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using ErrorChecker;
+using InputHandler;
 using ArrayHelper;
 
 namespace StatisticsHelper {
@@ -9,7 +9,6 @@ namespace StatisticsHelper {
     {
         public static dynamic DescriptiveStatistics(int[] source)
         {
-            ErrorHandler.checkInputs (source);
             Dictionary<string, dynamic> response =   
                        new Dictionary<string, dynamic>()
                        {

@@ -1,15 +1,16 @@
-﻿using System; //To use Console.
-using StatisticsHelper; //To use methods in Statistics class
-using System.Collections.Generic; //To use KeyValuePair
-//using NewtonSoft.Json;
+﻿using System;
+using StatisticsHelper;
+using System.Collections.Generic;
+using InputHandler;
+
 namespace Program
 {
     class Program
     {
         static void Main(string[] args)
         {
-            int[] test = new int[] { 5, 1, 1, 1, 3, -2, 2, 5, 7, 4, 5, 16 };
-            dynamic response = Statistics.DescriptiveStatistics(test);
+            
+            dynamic response = Statistics.DescriptiveStatistics(Inputs.importJSON());
 
             Console.WriteLine($"1. Maximum:         : {response["Maximum"]}");
             Console.WriteLine($"2. Minimum:         : {response["Minimum"]}");

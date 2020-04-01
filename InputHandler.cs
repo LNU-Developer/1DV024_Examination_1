@@ -1,7 +1,9 @@
 using System;
+//using NewtonSoft.Json;
 
-namespace ErrorChecker {
-    static class ErrorHandler 
+namespace InputHandler 
+{
+    static class Inputs 
     {
         public static void checkInputs (int[] source) 
         {
@@ -13,6 +15,12 @@ namespace ErrorChecker {
             {
             throw new InvalidOperationException("Sequence contains no elements");
             }
+        }
+
+        public static int[] importJSON () {
+            int[] import = new int[] { 5, 1, 1, 1, 3, -2, 2, 5, 7, 4, 5, 16 };
+            checkInputs (import);
+            return import;
         }
     }
 }
