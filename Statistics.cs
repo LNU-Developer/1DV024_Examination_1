@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using InputHandler;
 using ArrayHelper;
 
@@ -9,6 +8,7 @@ namespace StatisticsHelper {
     {
         public static dynamic DescriptiveStatistics(int[] source)
         {
+            Inputs.checkInputs(source);
             Dictionary<string, dynamic> response =   
                        new Dictionary<string, dynamic>()
                        {
@@ -26,12 +26,14 @@ namespace StatisticsHelper {
 
         public static int Maximum(int[] source)
         {
+            Inputs.checkInputs(source);
             int[] sortedArray = ArrayManipulation.uniqueSortedArray(source);
             return sortedArray[sortedArray.Length-1];
         }
 
         public static double Mean(int[] source)
         {
+            Inputs.checkInputs(source);
             double total = 0;
             for (int i = 0; i < source.Length; i++) 
             { 
@@ -43,6 +45,7 @@ namespace StatisticsHelper {
 
         public static double Median(int[] source)
         {
+            Inputs.checkInputs(source);
             int[] sortedArray = ArrayManipulation.uniqueSortedArray(source);
             double medianValue = 0;
             
@@ -62,12 +65,14 @@ namespace StatisticsHelper {
 
         public static int Minimum(int[] source)
         {
+            Inputs.checkInputs(source);
             int[] sortedArray = ArrayManipulation.uniqueSortedArray(source);
             return sortedArray[0];
         }
 
         public static int[] Mode(int[] source)
         {
+            Inputs.checkInputs(source);
             int[] sortedArray = ArrayManipulation.uniqueSortedArray(source);
             int[] countArray = new int[sortedArray.Length];
             
@@ -80,7 +85,7 @@ namespace StatisticsHelper {
                  countArray[i] = countArray[i-1]+1;
             }
 
-            int max = countArray.Max();
+            int max = Maximum(countArray);
             
             
             List<int> modeList = new List<int>();
@@ -94,11 +99,13 @@ namespace StatisticsHelper {
 
         public static int Range(int[] source)
         {
+            Inputs.checkInputs(source);
             int[] sortedArray = ArrayManipulation.uniqueSortedArray(source);    
             return sortedArray[sortedArray.Length - 1] - sortedArray[0];
         }
         public static double StandardDeviation(int[] source)
         {
+            Inputs.checkInputs(source);
             int[] sortedArray = ArrayManipulation.uniqueSortedArray(source);  
             double average = Mean(sortedArray);
             double[] powerOfDeviations = new double[sortedArray.Length];

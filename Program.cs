@@ -1,6 +1,5 @@
 ﻿using System;
 using StatisticsHelper;
-using System.Collections.Generic;
 using InputHandler;
 
 namespace Program

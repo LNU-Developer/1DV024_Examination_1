@@ -1,5 +1,6 @@
 using System;
-//using NewtonSoft.Json;
+using Newtonsoft.Json;
+using System.IO;
 
 namespace InputHandler 
 {
@@ -18,7 +19,7 @@ namespace InputHandler
         }
 
         public static int[] importJSON () {
-            int[] import = new int[] { 5, 1, 1, 1, 3, -2, 2, 5, 7, 4, 5, 16 };
+            int[] import = JsonConvert.DeserializeObject<int[]>(File.ReadAllText(@"data.json"));
             checkInputs (import);
             return import;
         }
